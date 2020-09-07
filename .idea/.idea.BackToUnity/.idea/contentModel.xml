@@ -19,8 +19,22 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="PlayerControls.cs" t="Include" />
-          <e p="PlayerMovement.cs" t="Include" />
+          <e p="Player" t="Include">
+            <e p="PlayerActions.cs" t="Include" />
+            <e p="PlayerControls.cs" t="Include" />
+            <e p="PlayerInteraction.cs" t="Include" />
+            <e p="PlayerMovement.cs" t="Include" />
+          </e>
+          <e p="Props" t="Include">
+            <e p="Interactable.cs" t="Include" />
+            <e p="Pickaxe.cs" t="Include" />
+            <e p="Pickuppable.cs" t="Include" />
+            <e p="Rock.cs" t="Include" />
+          </e>
+          <e p="TestKeyboardSplit" t="Include">
+            <e p="ConnectPlayers.cs" t="Include" />
+            <e p="TestConnectPlayers.cs" t="Include" />
+          </e>
           <e p="TestScript.cs" t="Include" />
         </e>
       </e>

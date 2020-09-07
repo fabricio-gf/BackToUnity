@@ -7,67 +7,85 @@ using UnityEngine.InputSystem.Controls;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private PlayerControls _playerControls;
+
+    private PlayerInput _playerInput;
+    
     // private PlayerControls _playerControls;
     private Transform _transform;
-    [SerializeField] private float speed, jumpSpeed;
+    [SerializeField] private float speed;
+    
+    private Vector2 _move;
 
     private void Awake()
     {
+        _playerInput = GetComponent<PlayerInput>();
+
         _transform = GetComponent<Transform>();
-        // _playerControls = new PlayerControls();
+        _playerControls = new PlayerControls();
+
+        //_playerControls.Gameplay.Move.performed += ctx => _move = ctx.ReadValue<Vector2>();
+        //_playerControls.Gameplay.Move.canceled += ctx => _move = Vector2.zero;
+        
+        _playerInput.onActionTriggered += OnMove;
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    private void OnEnable()
     {
-        Debug.Log("test");
-        Debug.Log(context.GetType());
-        var moveValue = context.ReadValue<Vector2>();
-        Debug.Log(moveValue);
-        //var stickControl = 
-    }
-    
-    public void OnUse(InputAction.CallbackContext context)
-    {
-        Debug.Log("test");
-        Debug.Log(context.GetType());
-        var moveValue = context.ReadValue<Vector2>();
-        Debug.Log(moveValue);
-        //var stickControl = 
-    }
-
-    public void Test(string test)
-    {
-        Debug.Log(test);
-    }
-
-    /*private void OnEnable()
-    {
-        _playerControls.Enable();
+        _playerControls.Gameplay.Enable();
     }
 
     private void OnDisable()
     {
-        _playerControls.Disable();
-    }*/
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-        
+        _playerControls.Gameplay.Disable();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        /*// Read the movement value
-        var leftRightInput = _playerControls.Standard.Move_LeftRight.ReadValue<float>();
-        var upDownInput = _playerControls.Standard.Move_UpDown.ReadValue<float>();
-        
-        // Move the player
-        var currentPosition = _transform.position;
-        currentPosition.x += leftRightInput * speed * Time.deltaTime;
-        currentPosition.y += upDownInput * speed * Time.deltaTime;
-        
-        _transform.position = currentPosition;*/
+        //var movement = new Vector2(_move.x, _move.y) * (speed * Time.deltaTime);
+        //_transform.Translate(movement, Space.World);
     }
+
+    public void OnMove(InputAction.CallbackContext ctx)
+    {
+        if (!gameObject.scene.IsValid()) return;
+        
+        if (ctx.started)
+        {
+            print("Player " + GetComponent<PlayerInput>().playerIndex + " started moving");
+        }
+
+        if (ctx.performed)
+        {
+            print("Player " + GetComponent<PlayerInput>().playerIndex + " performed moving");
+        }
+
+        if (ctx.canceled)
+        {
+            print("Player " + GetComponent<PlayerInput>().playerIndex + " canceled moving");
+        }
+    }
+
+    public void OnUse(InputAction.CallbackContext ctx)
+    {
+        if (!gameObject.scene.IsValid()) return;
+        
+        if (ctx.started)
+        {
+            print("Player " + GetComponent<PlayerInput>().playerIndex + " started using");
+        }
+
+        if (ctx.performed)
+        {
+            print("Player " + GetComponent<PlayerInput>().playerIndex + " performed using");
+        }
+
+        if (ctx.canceled)
+        {
+            print("Player " + GetComponent<PlayerInput>().playerIndex + " canceled using");
+        }
+        
+    }
+
 }

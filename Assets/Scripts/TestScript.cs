@@ -5,5 +5,8 @@ using UnityEngine.InputSystem;
 
 public class TestScript : MonoBehaviour
 {
-    
+    public void TestButton(string button)
+    {
+        print("Pressed " + button + " button");
+    }
 }

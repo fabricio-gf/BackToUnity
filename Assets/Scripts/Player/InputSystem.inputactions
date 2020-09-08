@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "664604be-1471-4b04-9802-c94803beb390",
                     "expectedControlType": "Stick",
                     "processors": "",
@@ -17,6 +17,14 @@
                     "name": "Use",
                     "type": "Button",
                     "id": "814cd2fc-5383-45aa-872d-0b71ffd38bb5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "1c5d9dc1-3a9a-4d37-a4cb-5afb0237b5ca",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -187,6 +195,28 @@
                     "action": "Use",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "801b9e7f-0b34-4f64-b2b5-73e4504eb6b3",
+                    "path": "<Gamepad>/start",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba0a8da6-3d32-412d-8ead-bd2b00d512ba",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -255,6 +285,14 @@
                     "type": "PassThrough",
                     "id": "7c5e6e5a-31f7-4607-8fc8-6fdbc2f636cc",
                     "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Unpause",
+                    "type": "Button",
+                    "id": "d9ee160c-af8b-4f60-9294-483eb9f33e26",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -521,6 +559,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse;Keyboard+Mouse",
                     "action": "RightClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c0b2424f-fb1f-4b48-a48f-4df68ce09a77",
+                    "path": "<Gamepad>/start",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Unpause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9d282892-5ae2-459f-ad21-9de1b0db8226",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "Unpause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
